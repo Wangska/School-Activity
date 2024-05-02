@@ -30,7 +30,7 @@ public class RegisterForm extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-        String query = "SELECT * FROM users WHERE username ='"+reguser.getText()+"' AND email ='"+regemail.getText()+"' ";
+        String query = "SELECT * FROM users WHERE email ='"+regemail.getText()+"' ";
             ResultSet resultSet = dbc.getData(query);
        
             
@@ -39,12 +39,7 @@ public class RegisterForm extends javax.swing.JFrame {
                 if(email_user.equals(regemail.getText())){
                     JOptionPane.showMessageDialog(null, "Email Already exist!");
                     regemail.setText("");
-                }
-                user_name = resultSet.getString("username");
-                if(user_name.equals(reguser.getText())){
-                    JOptionPane.showMessageDialog(null, "Username Already exist!");
-                    reguser.setText("");
-                }
+                } 
                 return true;
             }else{
                 return false;
@@ -63,7 +58,7 @@ public class RegisterForm extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         
         try{
-        String query = "SELECT * FROM users WHERE username ='"+reguser.getText()+"' AND email ='"+regemail.getText()+"' ";
+        String query = "SELECT * FROM users WHERE username ='"+reguser.getText()+"' ";
             ResultSet resultSet = dbc.getData(query);
        
             
@@ -372,14 +367,14 @@ public class RegisterForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "All fields are required!");
 
         }else if(emailcheck()){
-            System.out.println("Duplicate Exist!");
+            System.out.println("Email Exist!");
 
         }else if(regcontact.getText().length() != 11 ){
             JOptionPane.showMessageDialog(null, "Contact Number should be 11");
             regcontact.setText("");
 
         }else if(usercheck()){
-            System.out.println("Duplicate Exist!");
+            System.out.println("User Exist!");
 
         }else if(regpass.getText().length() <8){
             JOptionPane.showMessageDialog(null, "Password Should be 8!");

@@ -8,6 +8,8 @@ package AdminforApproving;
 import LoginandRegister.LoginForm;
 import static LoginandRegister.RegisterForm.passwordHash;
 import config.dbConnector;
+import config.session;
+import displayadmin.displayadmin;
 import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -95,6 +97,7 @@ public class Admindash extends javax.swing.JFrame {
         p_search_tbl = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -127,6 +130,11 @@ public class Admindash extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setLayout(null);
 
@@ -168,13 +176,13 @@ public class Admindash extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Welcome :");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(10, 10, 94, 30);
+        jLabel1.setBounds(60, 10, 94, 30);
 
         displayadmin.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         displayadmin.setForeground(new java.awt.Color(255, 255, 255));
         displayadmin.setText("Admin");
         jPanel2.add(displayadmin);
-        displayadmin.setBounds(120, 10, 230, 30);
+        displayadmin.setBounds(160, 10, 230, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,6 +211,15 @@ public class Admindash extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jPanel2.add(jLabel2);
         jLabel2.setBounds(190, 0, 1080, 50);
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/icons8-account-48.png"))); // NOI18N
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel17);
+        jLabel17.setBounds(10, 0, 48, 50);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jPanel2.add(jLabel15);
@@ -472,6 +489,19 @@ public class Admindash extends javax.swing.JFrame {
             System.out.println(e);
 
         }
+        
+         uid.setText("");
+       reglast.setText("");
+        regfirst.setText("");
+         regmid.setText("");
+           regadd.setText("");
+            regemail.setText("");
+            regcontact.setText("");
+            gen.setSelectedItem("");
+           accnt_type.setSelectedItem("");
+            reguser.setText("");
+            regpass.setText("");
+            status.setSelectedItem("");
         table_load();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -497,6 +527,8 @@ public class Admindash extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Update btn
         
+    
+        
         String ids = uid.getText();
         String lastnames = reglast.getText();
         String firstnames = regfirst.getText();
@@ -515,12 +547,14 @@ public class Admindash extends javax.swing.JFrame {
         
         try{
             
+            String password = passwordHash(passwordss);
+            
             if(dbc.insertData("UPDATE users SET lastname ='"+lastnames+"', "
                     + "firstname ='"+firstnames+"', middlename ='"+middlenames+"',"
                             + " address ='"+addresss+"', email ='"+emails+"', "
                                     + " contactnumber ='"+contactnum+"', gender ='"+genders+"',"
                                             + " account_type ='"+account_types+"', username ='"+usernamess+"',"
-                                                    + " password ='"+passwordss+"', Status ='"+Stat+"'  WHERE id ='"+ids+"' ")){
+                                                    + " password ='"+password+"', Status ='"+Stat+"'  WHERE id ='"+ids+"' ")){
             
                 JOptionPane.showMessageDialog(null, "Data Updated");
             }
@@ -531,6 +565,19 @@ public class Admindash extends javax.swing.JFrame {
             
             System.out.println(e);
         }
+        
+         uid.setText("");
+       reglast.setText("");
+        regfirst.setText("");
+         regmid.setText("");
+           regadd.setText("");
+            regemail.setText("");
+            regcontact.setText("");
+            gen.setSelectedItem("");
+           accnt_type.setSelectedItem("");
+            reguser.setText("");
+            regpass.setText("");
+            status.setSelectedItem("");
         table_load();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -558,6 +605,19 @@ public class Admindash extends javax.swing.JFrame {
             System.out.println(e);
         
         }
+        
+         uid.setText("");
+       reglast.setText("");
+        regfirst.setText("");
+         regmid.setText("");
+           regadd.setText("");
+            regemail.setText("");
+            regcontact.setText("");
+            gen.setSelectedItem("");
+           accnt_type.setSelectedItem("");
+            reguser.setText("");
+            regpass.setText("");
+            status.setSelectedItem("");
         
         table_load();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -618,6 +678,59 @@ public class Admindash extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_regpassActionPerformed
 
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        
+        this.dispose();
+
+        String last = displayadmin.getText();
+
+        dbConnector dbc = new dbConnector();
+
+        try{
+
+            String query =("SELECT * FROM users WHERE lastname ='"+last+"' ");
+            ResultSet rs = dbc.getData(query);
+
+            if(rs.next()){
+
+                displayadmin dis = new displayadmin();
+                dis.display_id.setText(rs.getString("id"));
+                dis.reglast.setText(rs.getString("lastname"));
+                dis.regfirst.setText(rs.getString("firstname"));
+                dis.regmid.setText(rs.getString("middlename"));
+                dis.regadd.setText(rs.getString("address"));
+                dis.regcontact.setText(rs.getString("contactnumber"));
+                dis.regemail.setText(rs.getString("email"));
+                dis.gen2.setText("gender");
+
+                dis.setVisible(true);
+
+            }
+
+        }catch(Exception e){
+
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        
+        
+         session sess = session.getInstance();
+        int user_id = sess.getId();
+        
+        if(user_id == 0){
+            JOptionPane.showMessageDialog(null, "No Account, Login First!");
+            LoginForm log = new LoginForm();
+            log.setVisible(true);
+            this.dispose();
+        }else{
+            displayadmin.setText(""+sess.getLast());
+        }
+       
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -671,6 +784,7 @@ public class Admindash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

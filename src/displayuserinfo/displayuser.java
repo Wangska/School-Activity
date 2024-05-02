@@ -227,11 +227,14 @@ public class displayuser extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         this.dispose();
+        CashierDash cash = new CashierDash();
+            cash.setVisible(true);
         
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         
          String ids = display_id.getText();
         

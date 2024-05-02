@@ -16,11 +16,71 @@ public class session {
     private String gender_m;
     private String user_name;
     private String pass_word;
+    private String salesid;
+    private String inid;
+    private String ttqty;
+    private String ttbill;
+    private String status;
+    private String balance;
+    
+    
+    
+    
+    
+    
     
     private session(){
         
         
         
+    }
+
+    public String getSalesid() {
+        return salesid;
+    }
+
+    public void setSalesid(String salesid) {
+        this.salesid = salesid;
+    }
+
+    public String getInid() {
+        return inid;
+    }
+
+    public void setInid(String inid) {
+        this.inid = inid;
+    }
+
+    public String getTtqty() {
+        return ttqty;
+    }
+
+    public void setTtqty(String ttqty) {
+        this.ttqty = ttqty;
+    }
+
+    public String getTtbill() {
+        return ttbill;
+    }
+
+    public void setTtbill(String ttbill) {
+        this.ttbill = ttbill;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
     }
 
 

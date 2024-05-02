@@ -7,6 +7,7 @@ package LoginandRegister;
 
 import AdminforApproving.Admindash;
 import Cashier.CashierDash;
+import static LoginandRegister.RegisterForm.passwordHash;
 import Owner.OwnerDash;
 import config.dbConnector;
 import config.session;
@@ -118,31 +119,7 @@ public class LoginForm extends javax.swing.JFrame {
         }
     }
     
-    public static String passwordHash(String password){
-        
-        try{
-        
-            MessageDigest md = MessageDigest.getInstance("Sha");
-            md.update(password.getBytes());
-            byte[] rbt = md.digest();
-            StringBuilder sb = new StringBuilder();
-            
-            for(byte b: rbt){
-                
-                sb.append(String.format("%02x", b));
-            
-            }
-            return sb.toString();
-        
-        }catch(Exception e){
-        
-        
-        }
-        return null;
     
-    
-    
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,7 +139,6 @@ public class LoginForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         pass = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -231,16 +207,6 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel1.add(pass);
         pass.setBounds(180, 330, 170, 40);
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Click here to create account");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 424, 160, 40);
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Orange and Black Bold Delicious Pizza Mobile Video.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4);
@@ -271,7 +237,7 @@ public class LoginForm extends javax.swing.JFrame {
         if (isAdmin(username)) {
             JOptionPane.showMessageDialog(null, "Login Successfully as Admin");
             Admindash ad = new Admindash();
-            ad.displayadmin.setText(""+last);
+            ad.displayadmin.setText(""+sess.getLast());
             ad.setVisible(true);
             this.dispose();
         } else if (isOwner(username)) {
@@ -315,15 +281,6 @@ public class LoginForm extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_showpassActionPerformed
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
-        
-        RegisterForm reg = new RegisterForm();
-        reg.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_jLabel5MouseClicked
 
     private void loginbuttonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginbuttonKeyPressed
         // TODO add your handling code here:
@@ -382,7 +339,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginbutton;
     private static javax.swing.JPasswordField pass;

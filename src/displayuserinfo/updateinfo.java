@@ -5,8 +5,10 @@
  */
 package displayuserinfo;
 
+import Cashier.CashierDash;
 import config.dbConnector;
 import config.session;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +23,39 @@ public class updateinfo extends javax.swing.JFrame {
     public updateinfo() {
         initComponents();
     }
+    
+    public void getData(String id){
+     
+         dbConnector dbc = new dbConnector();
+         
+         try{
+             
+             String query = "SELECT * FROM users WHERE id ='"+id+"' ";
+             ResultSet rs = dbc.getData(query);
+              if(rs.next()){
+
+                 session sess = session.getInstance(); 
+                 
+                 sess.setId(rs.getInt("id"));
+                 sess.setLast(rs.getString("lastname"));
+                 sess.setFirst(rs.getString("firstname"));
+                 sess.setMiddle(rs.getString("middlename"));
+                 sess.setAdds(rs.getString("address"));
+                 sess.setContac(rs.getString("contactnumber"));
+                 sess.setEmail_add(rs.getString("email"));
+                 sess.setGender_m(rs.getString("gender"));
+         
+              }
+         
+         
+         }catch(Exception e){
+         
+         
+         }
+         
+     
+     
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,6 +249,8 @@ public class updateinfo extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         this.dispose();
+        CashierDash cash = new CashierDash();
+            cash.setVisible(true);
 
     }//GEN-LAST:event_jLabel6MouseClicked
 
@@ -252,10 +289,15 @@ public class updateinfo extends javax.swing.JFrame {
                                     + " email ='"+emails+"', gender ='"+genders+"' "
                                             + "  WHERE id ='"+idss+"' ")){
             
-                JOptionPane.showMessageDialog(null, "Data Updated Please Login Again to Refresh the Information!");
-                this.dispose();
+                JOptionPane.showMessageDialog(null, "Data Updated!");
+                
+                
+                getData(idss);
             }
               
+            this.dispose();
+            CashierDash cash = new CashierDash();
+            cash.setVisible(true);
             
             
         } catch (Exception e){

@@ -5,6 +5,9 @@
  */
 package displayuserinfo;
 
+import Cashier.CashierDash;
+import LoginandRegister.LoginForm;
+import static LoginandRegister.RegisterForm.passwordHash;
 import config.dbConnector;
 import javax.swing.JOptionPane;
 
@@ -173,25 +176,30 @@ public class updatepass extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         this.dispose();
+        CashierDash cash = new CashierDash();
+            cash.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String idss = display_id.getText();
-       
         String usernamess = reguser.getText();
-        String passwordss = regpass.getText();
+        
 
         dbConnector dbc = new dbConnector();
 
         try{
+            
+            String password = passwordHash(regpass.getText());
 
             if(dbc.insertData("UPDATE users SET username ='"+usernamess+"',"
-                + " password ='"+passwordss+"'  WHERE id ='"+idss+"' ")){
+                + " password ='"+password+"'  WHERE id ='"+idss+"' ")){
 
-            JOptionPane.showMessageDialog(null, "Data Updated Please Login Again to Refresh the Information!");
+            JOptionPane.showMessageDialog(null, "Data Updated Please Login Again!");
             this.dispose();
+             LoginForm ads = new LoginForm();
+        ads.setVisible(true);
         }
 
         } catch (Exception e){
