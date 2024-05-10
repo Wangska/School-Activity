@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import panelloader.JpanelLoader;
+import javax.swing.JTable;
 
 /**
  *
@@ -380,11 +381,11 @@ public class CashierDash extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel7);
-        jPanel7.setBounds(2, 2, 1230, 310);
+        jPanel7.setBounds(2, 2, 1230, 340);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -468,36 +469,37 @@ public class CashierDash extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(total_qty, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(paid_amt)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(total_qty))
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(paid_amt)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(total_qty))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.add(jPanel8);
-        jPanel8.setBounds(370, 330, 680, 110);
+        jPanel8.setBounds(390, 360, 660, 90);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/icons8-add-shopping-cart-70.png"))); // NOI18N
+        jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel6.add(jButton1);
-        jButton1.setBounds(30, 350, 80, 80);
+        jButton1.setBounds(20, 370, 80, 60);
 
         jButton2.setText("Remove");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -506,7 +508,7 @@ public class CashierDash extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton2);
-        jButton2.setBounds(140, 350, 89, 80);
+        jButton2.setBounds(130, 370, 89, 60);
 
         jButton3.setText("Remove All");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -515,7 +517,7 @@ public class CashierDash extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton3);
-        jButton3.setBounds(260, 350, 89, 80);
+        jButton3.setBounds(240, 370, 130, 60);
 
         jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton4.setText("Pay & Print");
@@ -530,17 +532,17 @@ public class CashierDash extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton4);
-        jButton4.setBounds(1070, 330, 160, 110);
+        jButton4.setBounds(1060, 370, 160, 70);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jLabel14.setText("jLabel14");
         jPanel6.add(jLabel14);
-        jLabel14.setBounds(170, -70, 1126, 610);
+        jLabel14.setBounds(170, -70, 1146, 610);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jLabel15.setText("jLabel14");
         jPanel6.add(jLabel15);
-        jLabel15.setBounds(0, -90, 1126, 610);
+        jLabel15.setBounds(0, -90, 1146, 610);
 
         jPanel4.add(jPanel6);
         jPanel6.setBounds(10, 160, 1240, 460);
@@ -667,7 +669,7 @@ public class CashierDash extends javax.swing.JFrame {
         cashierdisplay.setForeground(new java.awt.Color(255, 255, 255));
         cashierdisplay.setText("Cashier");
         jPanel2.add(cashierdisplay);
-        cashierdisplay.setBounds(170, 10, 310, 30);
+        cashierdisplay.setBounds(170, 10, 170, 30);
 
         jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton5.setText("Log-out");
@@ -692,7 +694,7 @@ public class CashierDash extends javax.swing.JFrame {
         cashierdisplayfirst.setForeground(new java.awt.Color(255, 255, 255));
         cashierdisplayfirst.setText("Cashier");
         jPanel2.add(cashierdisplayfirst);
-        cashierdisplayfirst.setBounds(300, 10, 310, 30);
+        cashierdisplayfirst.setBounds(250, 10, 310, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jPanel2.add(jLabel2);
@@ -930,6 +932,11 @@ public class CashierDash extends javax.swing.JFrame {
                 + "'"+totqty+"', '"+tot_bil+"', '"+Status+"', '"+blnc+"') ")){
 
             JOptionPane.showMessageDialog(null, "Data Saved");
+            
+            try{
+                sale_table.print(JTable.PrintMode.FIT_WIDTH);
+            }catch(Exception e){
+            }
             
             this.dispose();
             CashierDash cash = new CashierDash();

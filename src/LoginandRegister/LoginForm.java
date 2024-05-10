@@ -57,18 +57,7 @@ public class LoginForm extends javax.swing.JFrame {
             if(resultSet.next()){
                 
                 statusss = resultSet.getString("status");
-                typess = resultSet.getString("account_type");
-//                last = resultSet.getString("lastname");
-//                first = resultSet.getString("firstname");
-//                middle = resultSet.getString("middlename");
-//                adds = resultSet.getString("address");
-//                contac = resultSet.getString("contactnumber");
-//                email_add = resultSet.getString("email");
-//                gender_m = resultSet.getString("gender");
-//                user_name = resultSet.getString("username");
-//                pass_word = resultSet.getString("password");
-//                confirm_password = resultSet.getString("password");
-//                
+                typess = resultSet.getString("account_type");            
                 
                  session sess = session.getInstance(); 
                  
@@ -111,6 +100,30 @@ public class LoginForm extends javax.swing.JFrame {
         dbConnector connector = new dbConnector();
         try {
             String query = "SELECT * FROM users WHERE username ='" + username + "' AND account_type ='Owner'";
+            ResultSet resultSet = connector.getData(query);
+            return resultSet.next();
+        }catch(SQLException e) {
+            System.out.println(""+e);
+        return false;
+        }
+    }
+    
+    public static boolean isCashier(String username) {
+        dbConnector connector = new dbConnector();
+        try {
+            String query = "SELECT * FROM users WHERE username ='" + username + "' AND account_type ='Cashier'";
+            ResultSet resultSet = connector.getData(query);
+            return resultSet.next();
+        }catch(SQLException e) {
+            System.out.println(""+e);
+        return false;
+        }
+    }
+    
+    public static boolean isPending(String username) {
+        dbConnector connector = new dbConnector();
+        try {
+            String query = "SELECT * FROM users WHERE username ='" + username + "' AND status ='Pending'";
             ResultSet resultSet = connector.getData(query);
             return resultSet.next();
         }catch(SQLException e) {
@@ -166,7 +179,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(showpass);
-        showpass.setBounds(250, 380, 130, 23);
+        showpass.setBounds(250, 380, 130, 29);
 
         loginbutton.setText("Login");
         loginbutton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -231,9 +244,9 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         session sess = session.getInstance(); 
+        String username = user.getText();
         
-        if (loginAcc(user.getText(), pass.getText())) {
-            String username = user.getText();
+        if (loginAcc(user.getText(), pass.getText())) {      
         if (isAdmin(username)) {
             JOptionPane.showMessageDialog(null, "Login Successfully as Admin");
             Admindash ad = new Admindash();
@@ -246,18 +259,19 @@ public class LoginForm extends javax.swing.JFrame {
             own.ownerdisplay.setText(""+last);
             own.setVisible(true);
             this.dispose();
-
-        } else{
+        }else {
             JOptionPane.showMessageDialog(null, "Login Successfully as Cashier");
             CashierDash cash = new CashierDash();
             cash.cashierdisplay.setText(""+sess.getLast());
             cash.cashierdisplayfirst.setText(""+sess.getFirst());
             cash.setVisible(true);
-            this.dispose();
+            this.dispose();   
         }
         this.dispose(); 
-        } else {
-            JOptionPane.showMessageDialog(null, "Invalid User or Password");
+        } else if(isPending(username)){
+            JOptionPane.showMessageDialog(null, "Contact Admin to Activate your Account!");     
+        }else {
+            JOptionPane.showMessageDialog(null, "Invalid Password");
         } 
         
         

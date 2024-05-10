@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Owner/OwnerDash.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Panels/Employee.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Panels/Cashier_dash.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/displayuserinfo/updateinfo.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/config/session.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/displayuserinfo/updatepass.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Panels/Reports.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/reportviewing/ReportView.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Panels/Product.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/panelloader/JpanelLoader.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/config/dbConnector.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/displayuserinfo/displayuser.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/AdminforApproving/Admindash.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/LoginandRegister/RegisterForm.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/Cashier/CashierDash.java</file>
-            <file>file:/C:/Users/Sofia/Documents/NetBeansProjects/FinalPOSV2/src/LoginandRegister/LoginForm.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

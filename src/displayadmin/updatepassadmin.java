@@ -11,6 +11,8 @@ import Cashier.CashierDash;
 import LoginandRegister.LoginForm;
 import static LoginandRegister.RegisterForm.passwordHash;
 import config.dbConnector;
+import config.session;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +37,7 @@ public class updatepassadmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         reguser = new javax.swing.JTextField();
@@ -48,6 +51,12 @@ public class updatepassadmin extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         display_id = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        oldpass = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jLabel10.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +65,12 @@ public class updatepassadmin extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Username :");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 120, 170, 30);
+        jLabel5.setBounds(20, 80, 170, 30);
 
+        reguser.setEditable(false);
         reguser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(reguser);
-        reguser.setBounds(210, 120, 200, 30);
+        reguser.setBounds(210, 80, 200, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Password :");
@@ -83,7 +93,7 @@ public class updatepassadmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(spass1);
-        spass1.setBounds(320, 190, 140, 23);
+        spass1.setBounds(320, 190, 140, 29);
 
         spass2.setText("Show Password");
         spass2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +102,7 @@ public class updatepassadmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(spass2);
-        spass2.setBounds(320, 250, 140, 23);
+        spass2.setBounds(320, 250, 140, 29);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/icons8-return-25.png"))); // NOI18N
         jLabel6.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -131,6 +141,20 @@ public class updatepassadmin extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2);
         jButton2.setBounds(240, 310, 190, 40);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setText("Old Password:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(20, 120, 170, 30);
+
+        oldpass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(oldpass);
+        oldpass.setBounds(210, 120, 200, 30);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jLabel11.setText("jLabel8");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(-430, 0, 900, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,25 +208,36 @@ public class updatepassadmin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
         String idss = display_id.getText();
         String usernamess = reguser.getText();
         
-
-        dbConnector dbc = new dbConnector();
-
         try{
             
-            String password = passwordHash(regpass.getText());
-
-            if(dbc.insertData("UPDATE users SET username ='"+usernamess+"',"
-                + " password ='"+password+"'  WHERE id ='"+idss+"' ")){
-
-            JOptionPane.showMessageDialog(null, "Data Updated Please Login Again!");
-            this.dispose();
-             LoginForm ads = new LoginForm();
-        ads.setVisible(true);
-        }
+            dbConnector dbc = new dbConnector();
+            
+            session sess = session.getInstance();
+            
+            String query = "SELECT * FROM users WHERE id ='"+sess.getId()+"' ";
+            ResultSet rs = dbc.getData(query);
+            
+            if(rs.next()){
+            
+                String oldpassword = rs.getString("password");
+                String oldhash = passwordHash(oldpass.getText());
+                
+                if(oldpassword.equals(oldhash)){
+                    String npass = passwordHash(regpass.getText());
+                    dbc.insertData("UPDATE users SET username ='"+usernamess+"', password ='"+npass+"' WHERE id ='"+idss+"' ");
+                    JOptionPane.showMessageDialog(null, "Data Updated Please Login Again!");
+                    LoginForm log = new LoginForm();
+                    log.setVisible(true);
+                    this.dispose();
+                
+                }else{
+                    JOptionPane.showMessageDialog(null, "Old Password is Incorrect!");
+                }
+                
+            }
 
         } catch (Exception e){
 
@@ -249,12 +284,16 @@ public class updatepassadmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel display_id;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JTextField oldpass;
     public javax.swing.JPasswordField regconfirmpass;
     public javax.swing.JPasswordField regpass;
     public javax.swing.JTextField reguser;

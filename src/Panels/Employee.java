@@ -108,6 +108,7 @@ public class Employee extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         showtbl = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
 
         jPanel1.setMaximumSize(new java.awt.Dimension(1030, 600));
         jPanel1.setMinimumSize(new java.awt.Dimension(1030, 600));
@@ -155,6 +156,11 @@ public class Employee extends javax.swing.JPanel {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(10, 80, 1000, 490);
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(0, 0, 1030, 600);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,6 +181,7 @@ public class Employee extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

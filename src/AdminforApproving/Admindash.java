@@ -117,8 +117,7 @@ public class Admindash extends javax.swing.JFrame {
         accnt_type = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         reguser = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        regpass = new javax.swing.JTextField();
+        newpassw = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         uid = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
@@ -128,6 +127,7 @@ public class Admindash extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -147,7 +147,15 @@ public class Admindash extends javax.swing.JFrame {
             new String [] {
                 "ID", "Last Name", "Frist Name", "Middle Name", "Address", "Email", "Contact Number", "Gender", "Account Type", "Username", "Password", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         showtbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showtblMouseClicked(evt);
@@ -234,29 +242,29 @@ public class Admindash extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("Last Name : ");
         jPanel3.add(jLabel16);
-        jLabel16.setBounds(100, 60, 140, 30);
+        jLabel16.setBounds(30, 60, 140, 30);
 
         reglast.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel3.add(reglast);
-        reglast.setBounds(100, 90, 270, 30);
+        reglast.setBounds(30, 90, 270, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("First Name : ");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(410, 60, 130, 30);
+        jLabel7.setBounds(340, 60, 130, 30);
 
         regfirst.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel3.add(regfirst);
-        regfirst.setBounds(410, 90, 200, 30);
+        regfirst.setBounds(340, 90, 200, 30);
 
         regmid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel3.add(regmid);
-        regmid.setBounds(660, 90, 290, 30);
+        regmid.setBounds(590, 90, 290, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setText("Address :");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(100, 140, 170, 30);
+        jLabel11.setBounds(30, 130, 170, 30);
 
         regadd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         regadd.addActionListener(new java.awt.event.ActionListener() {
@@ -265,12 +273,12 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(regadd);
-        regadd.setBounds(100, 170, 510, 30);
+        regadd.setBounds(30, 160, 510, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Email :");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(660, 140, 160, 30);
+        jLabel3.setBounds(590, 130, 160, 30);
 
         regemail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         regemail.addActionListener(new java.awt.event.ActionListener() {
@@ -279,12 +287,12 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(regemail);
-        regemail.setBounds(660, 170, 290, 30);
+        regemail.setBounds(590, 160, 290, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Contact Number :");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(100, 210, 170, 30);
+        jLabel4.setBounds(30, 200, 170, 30);
 
         regcontact.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         regcontact.addActionListener(new java.awt.event.ActionListener() {
@@ -293,50 +301,45 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(regcontact);
-        regcontact.setBounds(100, 240, 270, 30);
+        regcontact.setBounds(30, 230, 270, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setText("Gender :");
         jPanel3.add(jLabel14);
-        jLabel14.setBounds(410, 210, 150, 30);
+        jLabel14.setBounds(340, 200, 150, 30);
 
         gen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         gen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         jPanel3.add(gen);
-        gen.setBounds(410, 240, 200, 30);
+        gen.setBounds(340, 230, 200, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Account Type :");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(660, 210, 150, 30);
+        jLabel9.setBounds(590, 200, 150, 30);
 
         accnt_type.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         accnt_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Owner", "Cashier" }));
         jPanel3.add(accnt_type);
-        accnt_type.setBounds(660, 240, 290, 30);
+        accnt_type.setBounds(590, 230, 290, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Username :");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(100, 290, 170, 30);
+        jLabel5.setBounds(930, 130, 170, 30);
 
         reguser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel3.add(reguser);
-        reguser.setBounds(100, 320, 270, 30);
+        reguser.setBounds(930, 160, 270, 30);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setText("Password :");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(410, 290, 170, 30);
-
-        regpass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        regpass.addActionListener(new java.awt.event.ActionListener() {
+        newpassw.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        newpassw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regpassActionPerformed(evt);
+                newpasswActionPerformed(evt);
             }
         });
-        jPanel3.add(regpass);
-        regpass.setBounds(410, 320, 200, 30);
+        jPanel3.add(newpassw);
+        newpassw.setBounds(930, 230, 270, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Users ID : ");
@@ -351,12 +354,12 @@ public class Admindash extends javax.swing.JFrame {
         status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Inactive", "Pending" }));
         jPanel3.add(status);
-        status.setBounds(660, 320, 290, 30);
+        status.setBounds(930, 90, 270, 30);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("Status :");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(660, 290, 150, 30);
+        jLabel12.setBounds(930, 60, 150, 30);
 
         jButton1.setText("Delete");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -365,7 +368,7 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(1050, 290, 170, 50);
+        jButton1.setBounds(840, 320, 170, 50);
 
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -374,7 +377,7 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(1050, 80, 170, 50);
+        jButton2.setBounds(170, 320, 170, 50);
 
         jButton3.setText("Update");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +386,7 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton3);
-        jButton3.setBounds(1050, 220, 170, 50);
+        jButton3.setBounds(620, 320, 170, 50);
 
         jButton4.setText("Add");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -392,12 +395,17 @@ public class Admindash extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton4);
-        jButton4.setBounds(1050, 150, 170, 50);
+        jButton4.setBounds(390, 320, 170, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("Middle Name : ");
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(660, 60, 140, 30);
+        jLabel13.setBounds(590, 60, 140, 30);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel18.setText("Password :");
+        jPanel3.add(jLabel18);
+        jLabel18.setBounds(930, 200, 170, 30);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(10, 70, 1260, 410);
@@ -448,7 +456,7 @@ public class Admindash extends javax.swing.JFrame {
         gen.setSelectedItem(gender);
         accnt_type.setSelectedItem(account_type);
         reguser.setText(usernames);
-        regpass.setText(passwords);
+       
         status.setSelectedItem(stat);
             
                 
@@ -500,7 +508,7 @@ public class Admindash extends javax.swing.JFrame {
             gen.setSelectedItem("");
            accnt_type.setSelectedItem("");
             reguser.setText("");
-            regpass.setText("");
+            newpassw.setText("");
             status.setSelectedItem("");
         table_load();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -518,7 +526,7 @@ public class Admindash extends javax.swing.JFrame {
             gen.setSelectedItem("");
            accnt_type.setSelectedItem("");
             reguser.setText("");
-            regpass.setText("");
+            newpassw.setText("");
             status.setSelectedItem("");
         
         
@@ -539,32 +547,39 @@ public class Admindash extends javax.swing.JFrame {
         String genders = gen.getSelectedItem().toString();
         String account_types = accnt_type.getSelectedItem().toString();
         String usernamess = reguser.getText();
-        String passwordss = regpass.getText();
+        String passwordss = newpassw.getText();
         String Stat = status.getSelectedItem().toString();
         
         
-          dbConnector dbc = new dbConnector();
         
-        try{
+            try {
+            dbConnector dbc = new dbConnector();
             
-            String password = passwordHash(passwordss);
-            
-            if(dbc.insertData("UPDATE users SET lastname ='"+lastnames+"', "
-                    + "firstname ='"+firstnames+"', middlename ='"+middlenames+"',"
-                            + " address ='"+addresss+"', email ='"+emails+"', "
-                                    + " contactnumber ='"+contactnum+"', gender ='"+genders+"',"
-                                            + " account_type ='"+account_types+"', username ='"+usernamess+"',"
-                                                    + " password ='"+password+"', Status ='"+Stat+"'  WHERE id ='"+ids+"' ")){
-            
-                JOptionPane.showMessageDialog(null, "Data Updated");
+            String newPassword = passwordss; 
+            if (!newPassword.isEmpty()) {
+            newPassword = passwordHash(newPassword);
             }
-              
-            
-            
-        } catch (Exception e){
-            
+
+            String query = "UPDATE users SET lastname ='" + lastnames + "', "
+                + "firstname ='" + firstnames + "', middlename ='" + middlenames + "',"
+                + " address ='" + addresss + "', email ='" + emails + "', "
+                + " contactnumber ='" + contactnum + "', gender ='" + genders + "',"
+                + " account_type ='" + account_types + "', username ='" + usernamess + "',"
+                + " Status ='" + Stat + "'";
+
+            if (!passwordss.isEmpty()) {
+            query += ", password ='" + newPassword + "'";
+            }
+
+            query += " WHERE id ='" + ids + "'";
+
+            if (dbc.insertData(query)) {
+            JOptionPane.showMessageDialog(null, "Data Updated");
+            }
+
+            } catch (Exception e) {
             System.out.println(e);
-        }
+            }
         
          uid.setText("");
        reglast.setText("");
@@ -576,7 +591,7 @@ public class Admindash extends javax.swing.JFrame {
             gen.setSelectedItem("");
            accnt_type.setSelectedItem("");
             reguser.setText("");
-            regpass.setText("");
+            newpassw.setText("");
             status.setSelectedItem("");
         table_load();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -592,7 +607,7 @@ public class Admindash extends javax.swing.JFrame {
             
             if(dbc.insertData("INSERT INTO users(lastname, firstname, middlename, address, email, contactnumber, gender, account_type, username, password, status)"
                 + "Values ('"+reglast.getText()+"', '"+regfirst.getText()+"', '"+regmid.getText()+"', '"+regadd.getText()+"', '"+regemail.getText()+"',"
-                + " '"+regcontact.getText()+"', '"+gen.getSelectedItem()+"', '"+accnt_type.getSelectedItem()+"', '"+reguser.getText()+"', '"+regpass.getText()+"',"
+                + " '"+regcontact.getText()+"', '"+gen.getSelectedItem()+"', '"+accnt_type.getSelectedItem()+"', '"+reguser.getText()+"', '"+newpassw.getText()+"',"
                 + " '"+Stat+"')")){
                 JOptionPane.showMessageDialog(null, "Data Added");
         
@@ -616,7 +631,7 @@ public class Admindash extends javax.swing.JFrame {
             gen.setSelectedItem("");
            accnt_type.setSelectedItem("");
             reguser.setText("");
-            regpass.setText("");
+            newpassw.setText("");
             status.setSelectedItem("");
         
         table_load();
@@ -674,9 +689,9 @@ public class Admindash extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void regpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regpassActionPerformed
+    private void newpasswActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newpasswActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_regpassActionPerformed
+    }//GEN-LAST:event_newpasswActionPerformed
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
@@ -785,18 +800,19 @@ public class Admindash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField newpassw;
     private javax.swing.JTextField p_search_tbl;
     private javax.swing.JTextField regadd;
     private javax.swing.JTextField regcontact;
@@ -804,7 +820,6 @@ public class Admindash extends javax.swing.JFrame {
     private javax.swing.JTextField regfirst;
     private javax.swing.JTextField reglast;
     private javax.swing.JTextField regmid;
-    private javax.swing.JTextField regpass;
     private javax.swing.JTextField reguser;
     private javax.swing.JTable showtbl;
     private javax.swing.JComboBox<String> status;

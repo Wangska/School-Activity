@@ -68,6 +68,7 @@ public class displayuser extends javax.swing.JFrame {
         regadd = new javax.swing.JLabel();
         regcontact = new javax.swing.JLabel();
         regemail = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(441, 636));
@@ -201,6 +202,11 @@ public class displayuser extends javax.swing.JFrame {
         regemail.setText("jLabel1");
         jPanel1.add(regemail);
         regemail.setBounds(230, 300, 180, 30);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(-410, 0, 850, 480);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -371,6 +377,7 @@ public class displayuser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel regadd;
