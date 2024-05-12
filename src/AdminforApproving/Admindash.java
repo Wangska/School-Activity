@@ -128,6 +128,9 @@ public class Admindash extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -407,6 +410,18 @@ public class Admindash extends javax.swing.JFrame {
         jPanel3.add(jLabel18);
         jLabel18.setBounds(930, 200, 170, 30);
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(-430, 0, 970, 410);
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jPanel3.add(jLabel20);
+        jLabel20.setBounds(70, 0, 970, 410);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation.png"))); // NOI18N
+        jPanel3.add(jLabel19);
+        jLabel19.setBounds(920, 0, 970, 410);
+
         jPanel1.add(jPanel3);
         jPanel3.setBounds(10, 70, 1260, 410);
 
@@ -550,7 +565,11 @@ public class Admindash extends javax.swing.JFrame {
         String passwordss = newpassw.getText();
         String Stat = status.getSelectedItem().toString();
         
-        
+            if (lastnames.isEmpty() || firstnames.isEmpty()){
+                
+                JOptionPane.showMessageDialog(null, "Fields Required!");
+            
+            }else{
         
             try {
             dbConnector dbc = new dbConnector();
@@ -577,8 +596,10 @@ public class Admindash extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Data Updated");
             }
 
-            } catch (Exception e) {
+            } catch (HeadlessException e) {
             System.out.println(e);
+            }
+            
             }
         
          uid.setText("");
@@ -674,7 +695,8 @@ public class Admindash extends javax.swing.JFrame {
 
             }
 
-        }catch (Exception e){
+        }catch (SQLException e){
+            System.out.println(e);
             table_load();
 
         }
@@ -801,12 +823,15 @@ public class Admindash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -50,6 +50,7 @@ public class LoginForm extends javax.swing.JFrame {
         
         try{
             String hashedPassword = passwordHash(password1);
+            
             String query = "SELECT * FROM users WHERE username ='"+username1+"' "
                     + "AND password ='"+hashedPassword+"' AND status ='Active' ";
             ResultSet resultSet = connector.getData(query);
@@ -179,7 +180,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(showpass);
-        showpass.setBounds(250, 380, 130, 29);
+        showpass.setBounds(250, 380, 130, 23);
 
         loginbutton.setText("Login");
         loginbutton.addMouseListener(new java.awt.event.MouseAdapter() {
