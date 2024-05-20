@@ -537,12 +537,12 @@ public class CashierDash extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jLabel14.setText("jLabel14");
         jPanel6.add(jLabel14);
-        jLabel14.setBounds(170, -70, 1146, 610);
+        jLabel14.setBounds(170, -70, 1126, 610);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Peach and Orange Creative Illustrated Abstract Pizza Boxcar Presentation (1).png"))); // NOI18N
         jLabel15.setText("jLabel14");
         jPanel6.add(jLabel15);
-        jLabel15.setBounds(0, -90, 1146, 610);
+        jLabel15.setBounds(0, -90, 1126, 610);
 
         jPanel4.add(jPanel6);
         jPanel6.setBounds(10, 160, 1240, 460);
@@ -931,15 +931,10 @@ public class CashierDash extends javax.swing.JFrame {
                 + "status, balance) Values('"+inv_id+"', "
                 + "'"+totqty+"', '"+tot_bil+"', '"+Status+"', '"+blnc+"') ")){
 
-            JOptionPane.showMessageDialog(null, "Data Saved");
-            
-            try{
-                sale_table.print(JTable.PrintMode.FIT_WIDTH);
-            }catch(Exception e){
-            }
-            
+            JOptionPane.showMessageDialog(null, "Data Saved");   
+                   
             this.dispose();
-            CashierDash cash = new CashierDash();
+            Receipt cash = new Receipt();
             cash.setVisible(true);
 
         }
