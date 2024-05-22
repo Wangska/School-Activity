@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -22,6 +23,8 @@ import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import panelloader.JpanelLoader;
 import javax.swing.JTable;
+import reportviewing.ReportView;
+
 
 /**
  *
@@ -931,12 +934,22 @@ public class CashierDash extends javax.swing.JFrame {
                 + "status, balance) Values('"+inv_id+"', "
                 + "'"+totqty+"', '"+tot_bil+"', '"+Status+"', '"+blnc+"') ")){
 
-            JOptionPane.showMessageDialog(null, "Data Saved");   
-                   
-            this.dispose();
-            Receipt cash = new Receipt();
-            cash.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Data Saved");
+            
+            
+            
+        HashMap para = new HashMap();
 
+        para.put("inv_idprint", inid.getText());
+  
+
+        ReportView r = new ReportView("src\\Reeiptss\\receiptfinales.jasper", para);
+        r.setVisible(true);
+        
+        this.dispose();
+        CashierDash cash = new CashierDash();
+        cash.setVisible(true);
+  
         }
              data_load1();
             getData(inv_id);
@@ -962,6 +975,18 @@ public class CashierDash extends javax.swing.JFrame {
             System.out.println(e);
 
         }
+        
+        //Print or View Receipt
+        
+        try{
+            
+       
+  
+        }catch(Exception e){
+            System.out.println(e);
+        
+        }
+        
 
         data_load1();
 

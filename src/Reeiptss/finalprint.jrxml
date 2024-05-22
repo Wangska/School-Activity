@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="finalprint" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c15eaa59-04d9-4106-8d0b-67123b78a68f">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     sales.`salesid` AS sales_salesid,
+     sales.`INID` AS sales_INID,
+     sales.`total_qty` AS sales_total_qty,
+     sales.`tota_bill` AS sales_tota_bill,
+     sales.`status` AS sales_status,
+     sales.`balance` AS sales_balance
+FROM
+     `sales` sales]]>
+	</queryString>
+	<field name="sales_salesid" class="java.lang.Integer"/>
+	<field name="sales_INID" class="java.lang.String"/>
+	<field name="sales_total_qty" class="java.lang.String"/>
+	<field name="sales_tota_bill" class="java.lang.String"/>
+	<field name="sales_status" class="java.lang.String"/>
+	<field name="sales_balance" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="4bfb6038-de2f-4c13-bbd3-f77bb494e26e"/>
+				<imageExpression><![CDATA["leaf_banner_red.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="95de466f-f2d6-4634-a579-764e78ee8242"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Isekai Pizza ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22" uuid="b9ddcbaf-1f3a-41bf-b6d5-d32e4e75496a"/>
+				<text><![CDATA[City of Naga]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b73bf479-aa12-4549-9fff-b1ebd0f30fee"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="f2d87975-1172-41dc-8f6f-14b37eee4227"/>
+				<text><![CDATA[sales_salesid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="50b0f570-b1a8-46f2-a2ec-9043719027ec"/>
+				<text><![CDATA[sales_INID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="251f5520-b5d8-4d1c-b96f-5564b051c733"/>
+				<text><![CDATA[sales_total_qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="3a61db57-c8a1-499d-b251-93d45cf0ea10"/>
+				<text><![CDATA[sales_tota_bill]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="ce713eda-a5c6-4cb4-9a0a-a252f3bd5cb1"/>
+				<text><![CDATA[sales_status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="652c39fd-c51d-4981-9194-4b701b392717"/>
+				<text><![CDATA[sales_balance]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="93c7cb11-322e-419d-96f3-ffc5830b2c60"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="41d50473-62fe-4c1e-8506-18b0bdf6901b"/>
+				<textFieldExpression><![CDATA[$F{sales_salesid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="0bafd33f-701b-4b1d-9643-436210a311c3"/>
+				<textFieldExpression><![CDATA[$F{sales_INID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="a3204fe7-f20e-487e-82a7-faf79e545175"/>
+				<textFieldExpression><![CDATA[$F{sales_total_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="ef8b5fa0-1f94-4032-9095-de0f2012633b"/>
+				<textFieldExpression><![CDATA[$F{sales_tota_bill}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="94793d30-9205-469d-8561-4b5ca619c578"/>
+				<textFieldExpression><![CDATA[$F{sales_status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="15490c0b-64a7-4524-87c4-78d3b3c9b3f4"/>
+				<textFieldExpression><![CDATA[$F{sales_balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1ead13ff-a0d5-4c53-853c-9e74627fc14d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="4a89452e-53e0-4ebb-924b-f2e7c3baf0a7"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="727c601e-db8c-4363-ae65-49cf584ab1eb"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="e029f5b0-234f-43c4-9745-74b4cf56143e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -33,7 +33,7 @@ public class Receipt extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        printarea = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -41,8 +41,7 @@ public class Receipt extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableprint = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -70,51 +69,42 @@ public class Receipt extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 410, 50);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(null);
+        printarea.setBackground(new java.awt.Color(255, 255, 255));
+        printarea.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("ISEKAI PIZZA Co.");
-        jPanel4.add(jLabel2);
+        printarea.add(jLabel2);
         jLabel2.setBounds(110, 23, 149, 16);
 
         jLabel3.setText("City of Naga, Cebu");
-        jPanel4.add(jLabel3);
+        printarea.add(jLabel3);
         jLabel3.setBounds(134, 45, 92, 14);
-        jPanel4.add(jSeparator1);
+        printarea.add(jSeparator1);
         jSeparator1.setBounds(1, 65, 369, 7);
 
         jLabel4.setText("Product Info");
-        jPanel4.add(jLabel4);
+        printarea.add(jLabel4);
         jLabel4.setBounds(28, 102, 60, 14);
 
         jLabel5.setText("Qty.");
-        jPanel4.add(jLabel5);
+        printarea.add(jLabel5);
         jLabel5.setBounds(147, 102, 22, 14);
 
         jLabel6.setText("Price");
-        jPanel4.add(jLabel6);
+        printarea.add(jLabel6);
         jLabel6.setBounds(229, 102, 23, 14);
 
         jLabel7.setText("Total");
-        jPanel4.add(jLabel7);
+        printarea.add(jLabel7);
         jLabel7.setBounds(305, 102, 24, 14);
 
-        tableprint.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel1.add(printarea);
+        printarea.setBounds(20, 60, 370, 520);
 
-            },
-            new String [] {
-                "INID", "Product Name", "Barcode", "Quantity", "Unit Price", "Total Price"
-            }
-        ));
-        jScrollPane1.setViewportView(tableprint);
-
-        jPanel4.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 120, 370, 400);
-
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(20, 60, 370, 520);
+        jButton1.setText("Print");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(330, 600, 55, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,6 +157,7 @@ public class Receipt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -177,9 +168,7 @@ public class Receipt extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JTable tableprint;
+    private javax.swing.JPanel printarea;
     // End of variables declaration//GEN-END:variables
 }
