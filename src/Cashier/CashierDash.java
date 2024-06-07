@@ -920,36 +920,35 @@ public class CashierDash extends javax.swing.JFrame {
             String Status = null;
 
             if(pid.equals(0.0)){
-                Status = "Unpaid";
-
-            }else if(tot > pid){
-                Status = "Partial";
-
+                
+                JOptionPane.showMessageDialog(null, "Please Enter Amount");
+                
             }else{
-                Status = "Paid";
-            }
-
-            if(dbc.insertData("INSERT INTO sales (INID, "
+                
+                if(dbc.insertData("INSERT INTO sales (INID, "
                 + " total_qty, tota_bill, "
                 + "status, balance) Values('"+inv_id+"', "
-                + "'"+totqty+"', '"+tot_bil+"', '"+Status+"', '"+blnc+"') ")){
-
-            JOptionPane.showMessageDialog(null, "Data Saved");
+                + "'"+totqty+"', '"+tot_bil+"', 'Paid', '"+blnc+"') ")){
             
+                JOptionPane.showMessageDialog(null, "Data Saved");
             
-            
-        HashMap para = new HashMap();
+                
+                 HashMap para = new HashMap();
 
-        para.put("inv_idprint", inid.getText());
-  
+                para.put("inv_idprint", inid.getText());
 
-        ReportView r = new ReportView("src\\Reeiptss\\receiptfinales.jasper", para);
-        r.setVisible(true);
-        
-        this.dispose();
-        CashierDash cash = new CashierDash();
-        cash.setVisible(true);
-  
+
+                ReportView r = new ReportView("src\\Reeiptss\\receiptfinales.jasper", para);
+                r.setVisible(true);
+
+                this.dispose();
+                CashierDash cash = new CashierDash();
+                cash.setVisible(true);
+
+                String id =inid.getText();
+                dbc.insertData("UPDATE extra SET val='"+id+"' WHERE exid = 1");
+
+                }
         }
              data_load1();
             getData(inv_id);
@@ -959,34 +958,6 @@ public class CashierDash extends javax.swing.JFrame {
             System.out.println(e);
 
         }
-
-        //save last invoice number
-        try{
-
-            dbConnector dbc = new dbConnector();
-
-            String id =inid.getText();
-
-            if(dbc.insertData("UPDATE extra SET val='"+id+"' WHERE exid = 1")){
-                return;
-            }
-
-        }catch(Exception e){
-            System.out.println(e);
-
-        }
-        
-        //Print or View Receipt
-        
-        try{
-            
-       
-  
-        }catch(Exception e){
-            System.out.println(e);
-        
-        }
-        
 
         data_load1();
 
